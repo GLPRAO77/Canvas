@@ -31,27 +31,10 @@
 <script type="text/javascript">
             console.log("SFDC Raw Context: <%= context %>");
 			alert('1')
-var sr = {};
-			var payloadObj = { recommendation: "Verify identity" };
+
 			Sfdc.canvas(function () {
-				sr = JSON.parse('<%- sr %>');
-               
 				
-                listenEvents();
-                
 			});
-	function listenEvents() {
-				Sfdc.canvas.client.subscribe(sr.client, {
-					name: "recordchanged",
-					onData: function (e) {
-						console.log("Canvas recevied", e);
-						var para = document.createElement("p");
-						var node = document.createTextNode("Got data at => " + new Date() + JSON.stringify(e));
-						para.appendChild(node);
-						document.querySelector("#messages").appendChild(para);
-					},
-				});
-			}
 	
 
         </script>
