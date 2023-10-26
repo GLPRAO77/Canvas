@@ -27,6 +27,17 @@
             }
         </style>
         <script type="text/javascript" src="https://your-salesforce-subdomain.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
+		<script>
+		Sfdc.canvas(function() {
+    sr = JSON.parse('<%=signedRequestJson%>');
+    Sfdc.canvas.client.subscribe(sr.client,
+        {name : 'mynamespace.statusChanged', onData : function (event) {
+            console.log("Subscribed to custom event ", event);
+			alert('Sub')
+        }}
+    );
+});
+		</script>
 
     </head>
     <body>
