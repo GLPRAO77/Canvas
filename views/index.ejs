@@ -48,12 +48,7 @@
 			Sfdc.canvas(function() {
 			alert('12')
     var sr = JSON.parse('<%=signedRequestJson%>');
-    Sfdc.canvas.client.subscribe(sr.client,
-        {name : 'mynamespace.statusChanged', onData : function (event) {
-            console.log("Subscribed to custom event ", event);
-        }}
-    );
-	})
+  
 	
 
         </script>
