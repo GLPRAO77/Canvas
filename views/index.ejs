@@ -1,7 +1,7 @@
 <!-- Page -->
 <html>
     <head>
-        <style> 
+        <style>
             body {
                 margin: 0px;
                 padding: 0px;
@@ -26,41 +26,37 @@
                 margin: auto;
             }
         </style>
-       
-<script type="text/javascript" src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
-<script type="text/javascript">
-            console.log("SFDC Raw Context: <%= context %>");
-			alert('1')
 
-			Sfdc.canvas(function () {
-	          alert(2)
-Sfdc.canvas.client.subscribe({
-					name: "recordchanged",
-					onData: function (e) {
-						console.log("Canvas recevied", e);
-						alert('cc')
-					},
-				});			  
-					alert(3)
-			});
+        <script
+            type="text/javascript"
+            src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
+        <script type="text/javascript">
+            console.log('SFDC Raw Context: <%= context %>');
+            alert('1');
 
-
+            Sfdc.canvas(function () {
+                alert(2);
+                Sfdc.canvas.client.subscribe({
+                    name: 'recordchanged',
+                    onData: function (e) {
+                        console.log('Canvas recevied', e);
+                        alert('cc');
+                    },
+                });
+                alert(3);
+            });
+            function clickon() {
+                alert('11');
+                Sfdc.canvas.controller.publish({ name: 'recordchanged', payload: { message: 'teast' } });
+            }
         </script>
     </head>
     <body>
-
-        <% 
-            var user = "No user";
-            if (context != "") { 
-                var user = context['context']['user']['userName'];
-            }
-        %>
+        <% var user = "No user"; if (context != "") { var user = context['context']['user']['userName']; } %>
 
         <div id="full-banner"><p>You're connected to this system as <%= user %>.</p></div>
 
         <img id="ctx" src="<%= url %>" />
-
-        
-
+        <input type="button" onclick="clickon()" />
     </body>
 </html>
