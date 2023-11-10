@@ -36,7 +36,7 @@
             Sfdc.canvas(function () {
                 alert(2);
                 Sfdc.canvas.client.subscribe({
-                    name: 'recordchanged',
+                    name: 'mynamespace.statusChanged',
                     onData: function (e) {
                         console.log('Canvas recevied', e);
                         alert('cc');
