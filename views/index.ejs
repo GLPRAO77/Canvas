@@ -33,17 +33,18 @@
         <script type="text/javascript">
             console.log('SFDC Raw Context: <%= context %>');
             alert('1');
+
+            // Subscribe to a custom event.
             Sfdc.canvas(function () {
-                alert(2);
-                Sfdc.canvas.client.subscribe({
+                sr = JSON.parse('<%=signedRequestJson%>');
+                Sfdc.canvas.client.subscribe(sr.client, {
                     name: 'mynamespace.statusChanged',
-                    onData: function (e) {
-                        console.log('Canvas recevied', e);
-                        alert('cc');
+                    onData: function (event) {
+                        console.log('Subscribed to custom event ', event);
                     },
                 });
-                alert(3);
             });
+
             function clickon() {
                 alert('11');
                 Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
