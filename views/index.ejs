@@ -37,8 +37,26 @@
 
         <img id="ctx" src="<%= url %>" />
 
-        <script>
+        <script type="text/javascript">
             console.log('SFDC Raw Context: <%= context %>');
+            alert('1');
+            Sfdc.canvas(function () {
+                alert(2);
+                Sfdc.canvas.client.subscribe({
+                    name: 'mynamespace.statusChanged',
+                    onData: function (e) {
+                        console.log('Canvas recevied', e);
+                        alert('cc');
+                    },
+                });
+                alert(3);
+            });
+
+            function clickon() {
+                alert('11');
+                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
+                alert('22');
+            }
         </script>
     </body>
 </html>
