@@ -29,14 +29,6 @@
         <script
             type="text/javascript"
             src="https://your-salesforce-subdomain.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
-    </head>
-    <body>
-        <% var user = "No user"; if (context != "") { var user = context['context']['user']['userName']; } %>
-
-        <div id="full-banner"><p>You're connected to this system as <%= user %>.</p></div>
-
-        <img id="ctx" src="<%= url %>" />
-
         <script type="text/javascript">
             console.log('SFDC Raw Context: <%= context %>');
             alert('1');
@@ -58,5 +50,12 @@
                 alert('22');
             }
         </script>
+    </head>
+    <body>
+        <% var user = "No user"; if (context != "") { var user = context['context']['user']['userName']; } %>
+
+        <div id="full-banner"><p>You're connected to this system as <%= user %>.</p></div>
+
+        <img id="ctx" src="<%= url %>" />
     </body>
 </html>
