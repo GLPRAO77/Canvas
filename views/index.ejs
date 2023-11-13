@@ -34,7 +34,7 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('1');
             Sfdc.canvas(function () {
-                var sr = JSON.parse('<%=signedRequestJson%>');
+                //var sr = JSON.parse('<%=signedRequestJson%>');
                 alert(2);
                 Sfdc.canvas.client.subscribe({
                     name: 'mynamespace.statusChanged',
