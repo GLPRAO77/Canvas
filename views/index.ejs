@@ -26,31 +26,9 @@
                 margin: auto;
             }
         </style>
-
         <script
             type="text/javascript"
-            src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
-        <script type="text/javascript">
-            console.log('SFDC Raw Context: <%= context %>');
-            alert('1');
-            Sfdc.canvas(function () {
-                alert(2);
-                Sfdc.canvas.client.subscribe({
-                    name: 'mynamespace.statusChanged',
-                    onData: function (e) {
-                        console.log('Canvas recevied', e);
-                        alert('cc');
-                    },
-                });
-                alert(3);
-            });
-
-            function clickon() {
-                alert('11');
-                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
-                alert('22');
-            }
-        </script>
+            src="https://your-salesforce-subdomain.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
     </head>
     <body>
         <% var user = "No user"; if (context != "") { var user = context['context']['user']['userName']; } %>
@@ -58,9 +36,9 @@
         <div id="full-banner"><p>You're connected to this system as <%= user %>.</p></div>
 
         <img id="ctx" src="<%= url %>" />
-        <div>
-            akakak
-            <input type="button" value="tst" onclick="clickon()" />
-        </div>
+
+        <script>
+            console.log('SFDC Raw Context: <%= context %>');
+        </script>
     </body>
 </html>
