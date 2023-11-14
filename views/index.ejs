@@ -30,32 +30,39 @@
             type="text/javascript"
             src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
         <script type="text/javascript">
-            alert('123')
-                            console.log('SFDC Raw Context: <%= context %>');
-                            alert('18');
-                            Sfdc.canvas(function (data) {
-                                alert('1')
-                                var login    = Sfdc.canvas.byId("login"),
-                                loggedIn = Sfdc.canvas.oauth.loggedin();
-                            login.innerHTML = (loggedIn) ? "Logout" : "login";
-                            Sfdc.canvas.byId("access-token").innerHTML = (loggedIn) ? Sfdc.canvas.oauth.token() : "No Token";
-                            login.onclick=clickHandler;
-                        if(loggedIn){
-                          Sfdc.canvas.client.ctx(contextCallback, Sfdc.canvas.oauth.client());
-                        }
-                            });
+            var client = Sfdc.canvas.oauth.client();
 
-                            function clickon() {
-                                alert('11');
-                                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
-                                alert('22');
-                            }
-                            function contextCallback(msg){
-                                var html,context;
-                                if(msg.status !== 200){
-                                  console.log (msg.status);
-                                  return;
-                                }
+            // get the context object
+            Sfdc.canvas.client.ctx(function (ctx) {
+                console.log('ctx--' + ctx);
+                console.log(ctx);
+                alert(ctx.user);
+                // do something
+            }, client);
+            console.log('SFDC Raw Context: <%= context %>');
+            alert('18');
+            Sfdc.canvas(function (data) {
+                alert(data.payload);
+                console.log('<%=context%>');
+                var sr = JSON.parse('<%=context%>');
+
+                console.log(sr);
+                alert('sr' + sr.context);
+                Sfdc.canvas.client.subscribe({
+                    name: 'mynamespace.statusChanged',
+                    onData: function (e) {
+                        console.log('Canvas recevied', e);
+                        alert('cc');
+                    },
+                });
+                alert(3);
+            });
+
+            function clickon() {
+                alert('11');
+                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
+                alert('22');
+            }
         </script>
     </head>
     <body>
