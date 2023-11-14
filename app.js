@@ -31,6 +31,7 @@ app.get('/', function (req, res) {
 //Return for the fixed page
 app.get('/canvas-demo/', function (req, res) {
     //alert('1');
+    console.log('b64Hash--1');
     res.render('index', { context: '', url: process.env.IMAGE_URL });
 });
 
@@ -39,9 +40,11 @@ app.post('/canvas-demo/', function (req, res) {
     //alert('1');
     var signed_req = req.body.signed_request;
     var hashedContext = signed_req.split('.')[0];
+
     var context = signed_req.split('.')[1];
     var hash = CryptoJS.HmacSHA256(context, consumerSecret);
     var b64Hash = CryptoJS.enc.Base64.stringify(hash);
+    console.log('b64Hash--' + b64Hash);
     if (hashedContext === b64Hash) {
         //Decode context
         body = JSON.stringify(req.body);
