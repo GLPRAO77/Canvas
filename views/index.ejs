@@ -35,7 +35,8 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('18');
             Sfdc.canvas(function (data) {
-                Sfdc.canvas.ctx(callback);
+                Sfdc.canvas.oauth.token(window.signedRequestJson.oauthToken);
+                alert(window.signedRequestJson.context.user.fullName);
             });
             alert(3);
             function callback(msg) {
