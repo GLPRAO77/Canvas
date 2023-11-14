@@ -55,9 +55,9 @@ app.post('/canvas-demo/', function (req, res) {
 
         var json = decode(signed_request, process.env.CANVAS_CONSUMER_SECRET);
 
+        res.send(signed_request);
         //Render and pass
-        //res.render('index', { context: json, url: process.env.IMAGE_URL });
-        res.send('Canvas authentication failed1');
+        res.render('index', { context: json, url: process.env.IMAGE_URL });
     } else {
         res.send('Canvas authentication failed');
     }
