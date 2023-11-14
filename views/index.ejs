@@ -33,8 +33,8 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('18');
             Sfdc.canvas(function (data) {
-                console.log(data.user.userName);
-                alert(2);
+                var sr = JSON.parse('<%=context%>');
+                alert('sr' + context);
                 Sfdc.canvas.client.subscribe({
                     name: 'mynamespace.statusChanged',
                     onData: function (e) {
