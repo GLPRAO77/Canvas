@@ -39,6 +39,8 @@
             });
             alert(3);
             function callback(msg) {
+                console.log('msg');
+                console.log(msg);
                 if (msg.status !== 200) {
                     alert('Error: ' + msg.status);
                     return;
