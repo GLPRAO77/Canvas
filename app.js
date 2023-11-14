@@ -30,6 +30,7 @@ app.get('/', function (req, res) {
 
 //Return for the fixed page
 app.get('/canvas-demo/', function (req, res) {
+    alert('1');
     res.render('index', { context: '', url: process.env.IMAGE_URL });
 });
 
