@@ -58,11 +58,11 @@ app.post('/canvas-demo/', function (req, res) {
         //res.send(json.context.environment.parameters.objectName);
         //res.render('index', { context: json, url: process.env.IMAGE_URL });
         if (json.context.environment.parameters.objectName == 'Home') {
-            res.send('came1');
-            //res.render('index', { context: json, url: process.env.IMAGE_URL });
+            //res.send('came1');
+            res.render('index', { context: json, url: process.env.IMAGE_URL });
         } else if (json.context.environment.parameters.objectName == 'Account') {
-            res.send('came2');
-            //res.render('account', { context: json, url: process.env.IMAGE_URL });
+            //res.send('came2');
+            res.render('account', { context: json, url: process.env.IMAGE_URL });
         }
         //Render and pass
         //res.render('index', { context: json, url: process.env.IMAGE_URL });
