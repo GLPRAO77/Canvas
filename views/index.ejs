@@ -29,16 +29,14 @@
         <script
             type="text/javascript"
             src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
-
-        <script type="text/javascript">
-            console.log(context['context']);
-            console.log('SFDC Raw Context: <%= context %>');
-        </script>
     </head>
     <body>
         <% var user = "No user"; if (context != "") { var user = context['context']['user']['userName']; } %> <%= context %>
         <div id="full-banner"><p>You're connected to this system as <%= user %>.</p></div>
 
         <img id="ctx" src="<%= url %>" />
+        <script type="text/javascript">
+            console.log(user);
+        </script>
     </body>
 </html>
