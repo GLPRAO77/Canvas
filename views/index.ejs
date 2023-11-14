@@ -31,16 +31,7 @@
             src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
 
         <script type="text/javascript">
-            if (context != '') {
-                var user = context['context']['user']['userName'];
-                alert(user);
-            }
-
-            function clickon() {
-                alert('11');
-                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
-                alert('22');
-            }
+            console.log('SFDC Raw Context: <%= context %>');
         </script>
     </head>
     <body>
