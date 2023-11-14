@@ -33,32 +33,32 @@
 
 
 
+            alert('123')
+                            console.log('SFDC Raw Context: <%= context %>');
+                            alert('18');
+                            Sfdc.canvas(function (data) {
+                                alert('1')
+                                var login    = Sfdc.canvas.byId("login"),
+                                loggedIn = Sfdc.canvas.oauth.loggedin();
+                            login.innerHTML = (loggedIn) ? "Logout" : "login";
+                            Sfdc.canvas.byId("access-token").innerHTML = (loggedIn) ? Sfdc.canvas.oauth.token() : "No Token";
+                            login.onclick=clickHandler;
+                        if(loggedIn){
+                          Sfdc.canvas.client.ctx(contextCallback, Sfdc.canvas.oauth.client());
+                        }
+                            });
 
-                console.log('SFDC Raw Context: <%= context %>');
-                alert('18');
-                Sfdc.canvas(function (data) {
-                    alert('1')
-                    var login    = Sfdc.canvas.byId("login"),
-                    loggedIn = Sfdc.canvas.oauth.loggedin();
-                login.innerHTML = (loggedIn) ? "Logout" : "login";
-                Sfdc.canvas.byId("access-token").innerHTML = (loggedIn) ? Sfdc.canvas.oauth.token() : "No Token";
-                login.onclick=clickHandler;
-            if(loggedIn){
-              Sfdc.canvas.client.ctx(contextCallback, Sfdc.canvas.oauth.client());
-            }
-                });
-
-                function clickon() {
-                    alert('11');
-                    Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
-                    alert('22');
-                }
-                function contextCallback(msg){
-                    var html,context;
-                    if(msg.status !== 200){
-                      console.log (msg.status);
-                      return;
-                    }
+                            function clickon() {
+                                alert('11');
+                                Sfdc.canvas.client.publish({ name: 'recordchanged', payload: { message: 'teast' } });
+                                alert('22');
+                            }
+                            function contextCallback(msg){
+                                var html,context;
+                                if(msg.status !== 200){
+                                  console.log (msg.status);
+                                  return;
+                                }
         </script>
     </head>
     <body>
