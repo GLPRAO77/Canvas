@@ -35,7 +35,7 @@
             Sfdc.canvas(function (data) {
                 var sr = '<%=context%>';
                 console.log(sr);
-                alert('sr' + sr.context.user);
+                alert('sr' + sr.context);
                 Sfdc.canvas.client.subscribe({
                     name: 'mynamespace.statusChanged',
                     onData: function (e) {
