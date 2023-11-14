@@ -35,6 +35,7 @@ app.get('/canvas-demo/', function (req, res) {
 
 //Signed request for canvas app
 app.post('/canvas-demo/', function (req, res) {
+    alert('1');
     var signed_req = req.body.signed_request;
     var hashedContext = signed_req.split('.')[0];
     var context = signed_req.split('.')[1];
