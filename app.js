@@ -45,6 +45,7 @@ app.post('/canvas-demo/', function (req, res) {
         body = JSON.stringify(req.body);
         data = JSON.stringify(res.data);
         console.log('data--' + data);
+        alert('1');
 
         signed_request = JSON.parse(body)['signed_request'];
 
