@@ -48,7 +48,7 @@ app.post('/canvas-demo/', function (req, res) {
     if (hashedContext === b64Hash) {
         //Decode context
         body = JSON.stringify(req.body);
-        data = JSON.stringify(res.data);
+        //data = JSON.stringify(res.data);
         console.log('data--' + data);
 
         signed_request = JSON.parse(body)['signed_request'];
