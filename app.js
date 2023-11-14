@@ -55,15 +55,15 @@ app.post('/canvas-demo/', function (req, res) {
 
         var json = decode(signed_request, process.env.CANVAS_CONSUMER_SECRET);
 
-        res.send(json.context.environment);
+        //res.send(json.context.environment.parameters.objectName);
         //res.render('index', { context: json, url: process.env.IMAGE_URL });
-        /*if (res.data.context.environment.parameters.objectName == 'Home') {
+        if (json.context.environment.parameters.objectName == 'Home') {
             res.send('came1');
             //res.render('index', { context: json, url: process.env.IMAGE_URL });
-        } else if (res.data.context.environment.parameters.objectName == 'Account') {
+        } else if (json.context.environment.parameters.objectName == 'Account') {
             res.send('came2');
             //res.render('account', { context: json, url: process.env.IMAGE_URL });
-        }*/
+        }
         //Render and pass
         //res.render('index', { context: json, url: process.env.IMAGE_URL });
     } else {
