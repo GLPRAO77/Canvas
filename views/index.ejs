@@ -33,6 +33,7 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('18');
             Sfdc.canvas(function (data) {
+                alert(data.payload);
                 console.log('<%=context%>');
                 var sr = JSON.parse('<%=context%>');
 
