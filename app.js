@@ -55,7 +55,7 @@ app.post('/canvas-demo/', function (req, res) {
 
         var json = decode(signed_request, process.env.CANVAS_CONSUMER_SECRET);
 
-        res.send(res.data.context);
+        res.send(JSON.stringify(res.data.context));
         //res.render('index', { context: json, url: process.env.IMAGE_URL });
         /*if (res.data.context.environment.parameters.objectName == 'Home') {
             res.send('came1');
