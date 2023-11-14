@@ -35,7 +35,7 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('18');
             Sfdc.canvas(function (data) {
-                Sfdc.canvas.client.ctx(callback, client);
+                Sfdc.canvas.ctx(callback, client);
             });
             alert(3);
             function callback(msg) {
