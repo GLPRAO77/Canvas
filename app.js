@@ -55,7 +55,7 @@ app.post('/canvas-demo/', function (req, res) {
 
         var json = decode(signed_request, process.env.CANVAS_CONSUMER_SECRET);
 
-        res.send(signed_request);
+        res.send(data);
         //Render and pass
         res.render('index', { context: json, url: process.env.IMAGE_URL });
     } else {
