@@ -30,13 +30,14 @@
             type="text/javascript"
             src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
         <script type="text/javascript">
-                var client = Sfdc.canvas.oauth.client();
+
 
 
 
                 console.log('SFDC Raw Context: <%= context %>');
                 alert('18');
                 Sfdc.canvas(function (data) {
+                    alert('1')
                     var login    = Sfdc.canvas.byId("login"),
                     loggedIn = Sfdc.canvas.oauth.loggedin();
                 login.innerHTML = (loggedIn) ? "Logout" : "login";
