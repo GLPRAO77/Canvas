@@ -34,7 +34,7 @@
             alert('18');
             Sfdc.canvas(function (data) {
                 var sr = JSON.parse('<%=context%>');
-                alert('sr' + context);
+                alert('sr' + sr);
                 Sfdc.canvas.client.subscribe({
                     name: 'mynamespace.statusChanged',
                     onData: function (e) {
