@@ -42,21 +42,10 @@
             console.log('SFDC Raw Context: <%= context %>');
             alert('18');
             Sfdc.canvas(function (data) {
-                alert(data.payload);
-                console.log('<%=context%>');
-                var sr = JSON.parse('<%=context%>');
-
-                console.log(sr);
-                alert('sr' + sr.context);
-                Sfdc.canvas.client.subscribe({
-                    name: 'mynamespace.statusChanged',
-                    onData: function (e) {
-                        console.log('Canvas recevied', e);
-                        alert('cc');
-                    },
-                });
-                alert(3);
+                var sr = JSON.parse('<%=signedRequestJson%>');
+                alert(sr.context.user.fullName);
             });
+            alert(3);
 
             function clickon() {
                 alert('11');
