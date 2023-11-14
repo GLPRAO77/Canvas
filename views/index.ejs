@@ -31,22 +31,9 @@
             src="https://navatha3-dev-ed.lightning.force.com/canvas/sdk/js/45.0/canvas-all.js"></script>
 
         <script type="text/javascript">
-            //var client = Sfdc.canvas.oauth.client();
-            console.log('SFDC Raw Context: <%= context %>');
-            alert('18');
-            Sfdc.canvas(function (data) {
-                Sfdc.canvas.oauth.token(window.signedRequestJson.oauthToken);
-                alert(window.signedRequestJson.context.user.fullName);
-            });
-            alert(3);
-            function callback(msg) {
-                console.log('msg');
-                console.log(msg);
-                if (msg.status !== 200) {
-                    alert('Error: ' + msg.status);
-                    return;
-                }
-                alert('Payload: ', msg.payload);
+            if (context != '') {
+                var user = context['context']['user']['userName'];
+                alert(user);
             }
 
             function clickon() {
